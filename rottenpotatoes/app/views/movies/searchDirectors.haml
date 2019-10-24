@@ -1,0 +1,22 @@
+-#  This file is app/views/movies/showSimilarMovies.html.haml
+%h2 Movies Similar to #{@movie.title}
+
+%table.table-striped.col-md-10#search_directors
+  %thead
+    %tr
+      %th Movie Title
+      %th Rating
+      %th Director
+      %th Release Date
+      %th More Info
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.title 
+        %td= movie.rating
+        %td= movie.director
+        %td= movie.release_date
+        %td= link_to "More about #{movie.title}", movie_path(movie)
+
+%br
+= link_to 'Back to movie list', movies_path
